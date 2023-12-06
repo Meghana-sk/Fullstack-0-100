@@ -16,6 +16,51 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if (typeof num === 'number' && num !== 0) {
+      this.result /= num;
+    } else {
+      throw new Error('Invalid number');
+    }
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    //remove spaces
+    expression = expression.replace(/\s/g, '');
+    const result = eval(expression);
+    if (typeof result !== 'number' || isNaN(result)) {
+      throw new Error('Invalid operand type');
+    } else if (!isFinite(result)) {
+      throw new Error('Division by zero');
+    }
+    this.result = result;
+    return this.result;
+  }
+}
 
 module.exports = Calculator;
