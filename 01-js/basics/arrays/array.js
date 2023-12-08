@@ -103,3 +103,8 @@ function sortExample(arr) {
   console.log("After sort:", arr);
 }
 sortExample([5, 2, 3, 4, 1]);
+
+//splice() - Changes the contents of an array by removing or replacing existing elements and/or adding new elements.
+let fruits = ['apple', 'banana', 'orange'];
+fruits.splice(1, 1, 'grape', 'kiwi');
+// Result: ['apple', 'grape', 'kiwi', 'orange']
